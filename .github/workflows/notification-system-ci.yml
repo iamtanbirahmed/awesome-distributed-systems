@@ -1,0 +1,40 @@
+on:
+  push:
+    paths:
+      - 'notification-system/**'
+      - '.github/workflows/notification-system-ci.yml'
+  pull_request:
+    paths:
+      - 'notification-system/**'
+      - '.github/workflows/notification-system-ci.yml' 
+
+name: Notification System CI
+
+jobs:
+  build:
+    name: Build and Test Notification System
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install Dependencies
+        run: |
+          cd notification-system
+          npm install
+
+      - name: Run Tests
+        run: |
+          cd notification-system
+          npm test
+
+      - name: Build Project
+        run: |
+          cd notification-system
+          npm run build

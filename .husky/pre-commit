@@ -1,0 +1,16 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🔎 Running Pre-commit checks across all systems..."
+
+# Function to run checks in a specific monorepo
+run_nx_checks() {
+  local dir=$1
+  if [ -d "$dir" ]; then
+    echo "📦 Checking $dir..."
+    cd "$dir" && npx nx affected --target=lint --parallel=3 && cd ../..
+  fi
+}
+
+# Add your systems here
+run_nx_checks "notification-system"

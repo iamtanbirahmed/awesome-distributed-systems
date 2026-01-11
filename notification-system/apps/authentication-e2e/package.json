@@ -1,0 +1,26 @@
+{
+  "name": "@notification-system/authentication-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@notification-system/authentication"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/authentication-e2e/jest.config.cts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@notification-system/authentication:build",
+          "@notification-system/authentication:serve"
+        ]
+      }
+    }
+  }
+}
