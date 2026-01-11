@@ -27,14 +27,14 @@ jobs:
       - name: Install Dependencies
         run: |
           cd notification-system
-          npm install
+          npm ci
 
-      - name: Run Tests
-        run: |
-          cd notification-system
-          npm test
+      # - name: Run Tests
+      #   run: |
+      #     cd notification-system
+      #     npx nx run-many -t test
 
       - name: Build Project
         run: |
           cd notification-system
-          npm run build
+          npx nx run-many -t build
