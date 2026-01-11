@@ -36,5 +36,4 @@ jobs:
 
       - name: Build Project
         run: |
-          cd notification-system
           npx nx run-many -t build
