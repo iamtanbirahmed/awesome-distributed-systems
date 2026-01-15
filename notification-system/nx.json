@@ -14,6 +14,20 @@
     ],
     "sharedGlobals": []
   },
+  "release": {
+    "projects": ["libs/*", "apps/*", "charts/*"],
+    "projectsRelationship": "fixed",
+    "version": {
+      "conventionalCommits": true,
+      "fallbackCurrentVersionResolver": "disk"
+    },
+    "changelog": {
+      "automaticFromRef": true,
+      "workspaceChangelog": {
+        "createRelease": "github"
+      }
+    }
+  },
   "plugins": [
     {
       "plugin": "@nx/js/typescript",
