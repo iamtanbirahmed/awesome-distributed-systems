@@ -102,12 +102,6 @@
         "options": {
           "passWithNoTests": true
         }
-      },
-      "docker:build": {
-        "dependsOn": [
-          "build",
-          "prune"
-        ]
       }
     }
   },

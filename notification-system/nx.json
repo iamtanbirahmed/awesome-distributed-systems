@@ -69,17 +69,6 @@
       "exclude": ["apps/authentication-e2e/**/*"]
     },
     {
-      "plugin": "@nx/docker",
-      "options": {
-        "buildTarget": {
-          "name": "docker:build"
-        },
-        "runTarget": {
-          "name": "docker:run"
-        }
-      }
-    },
-    {
       "plugin": "@nx/js/typescript",
       "include": ["libs/mailgun/*"],
       "options": {
