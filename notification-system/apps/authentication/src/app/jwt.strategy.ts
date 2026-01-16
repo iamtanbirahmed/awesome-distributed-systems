@@ -7,7 +7,6 @@ import { environment } from '../environments/environment';
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor() {
     super({
-      // 1. Fetch public keys dynamically from the provider
       secretOrKeyProvider: passportJwtSecret({
         cache: environment.oauth2Config.cache,
         rateLimit: environment.oauth2Config.rateLimit,
@@ -21,7 +20,6 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
   override validate(payload: any) {
-    console.log('JWT Payload:', payload);
     return {
       userId: payload.sub,
       email: payload.email,

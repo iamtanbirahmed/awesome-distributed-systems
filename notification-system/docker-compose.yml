@@ -2,8 +2,8 @@ services:
   postgres:
     image: postgres:16
     container_name: keycloak-db
-    # volumes:
-    #   - postgres_data:/var/lib/postgresql/data
+    volumes:
+      - ./data/pg:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: keycloak
       POSTGRES_USER: keycloak
@@ -30,14 +30,27 @@ services:
       KC_DB_PASSWORD: password
       
       # NestJS Integration Settings
+      KC_HOSTNAME_URL: http://localhost:8080/realms/notification
       KC_HTTP_ENABLED: "true"
       KC_HOSTNAME_STRICT: "false"
-      KC_HEALTH_ENABLED: "true"
+      KC_HEALTH_ENABLED: "true"      
     ports:
       - "8080:8080"
     depends_on:
       postgres:
         condition: service_healthy
-
-volumes:
-  postgres_data:
+  authentication:
+    build:
+      context: .
+      dockerfile: apps/authentication/Dockerfile
+    
+    container_name: authentication-server
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      OAUTH2_HOST: keycloak:8080
+      ISSUER_URL: http://localhost:8080/realms/notification
+    depends_on:
+      - keycloak
+      - postgres

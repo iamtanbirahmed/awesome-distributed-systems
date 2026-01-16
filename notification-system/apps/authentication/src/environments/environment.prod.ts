@@ -7,7 +7,7 @@ export const environment: AppEnvironment = {
     jwksRequestsPerMinute: 5,
     jwksUri: `http://${process.env.OAUTH2_HOST}/realms/notification/protocol/openid-connect/certs`,
     audience: 'account',
-    issuer: `http://${process.env.OAUTH2_HOST}/realms/notification`,
-    algorithms: [],
+    issuer: `${process.env.ISSUER_URL}` || `http://localhost:8080/realms/notification`,
+    algorithms: ['RS256'],
   },
 };
