@@ -11,12 +11,35 @@
           "args": [
             "--node-env=production"
           ],
+          "fileReplacements": [
+            {
+              "replace": "apps/authentication/src/environments/environment.ts",
+              "with": "apps/authentication/src/environments/environment.prod.ts"
+            }
+          ],
           "cwd": "apps/authentication"
         },
         "configurations": {
           "development": {
             "args": [
               "--node-env=development"
+            ],
+            "fileReplacements": [
+              {
+                "replace": "apps/authentication/src/environments/environment.ts",
+                "with": "apps/authentication/src/environments/environment.ts"
+              }
+            ]
+          },
+          "staging": {
+            "args": [
+              "--node-env=production"
+            ],
+            "fileReplacements": [
+              {
+                "replace": "apps/authentication/src/environments/environment.ts",
+                "with": "apps/authentication/src/environments/environment.staging.ts"
+              }
             ]
           }
         }
@@ -79,12 +102,6 @@
         "options": {
           "passWithNoTests": true
         }
-      },
-      "docker:build": {
-        "dependsOn": [
-          "build",
-          "prune"
-        ]
       }
     }
   },

@@ -14,6 +14,20 @@
     ],
     "sharedGlobals": []
   },
+  "release": {
+    "projects": ["libs/*", "apps/*", "charts/*"],
+    "projectsRelationship": "fixed",
+    "version": {
+      "conventionalCommits": true,
+      "fallbackCurrentVersionResolver": "disk"
+    },
+    "changelog": {
+      "automaticFromRef": true,
+      "workspaceChangelog": {
+        "createRelease": "github"
+      }
+    }
+  },
   "plugins": [
     {
       "plugin": "@nx/js/typescript",
@@ -53,17 +67,6 @@
         "targetName": "test"
       },
       "exclude": ["apps/authentication-e2e/**/*"]
-    },
-    {
-      "plugin": "@nx/docker",
-      "options": {
-        "buildTarget": {
-          "name": "docker:build"
-        },
-        "runTarget": {
-          "name": "docker:run"
-        }
-      }
     },
     {
       "plugin": "@nx/js/typescript",
