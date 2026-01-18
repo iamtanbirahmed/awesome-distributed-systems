@@ -6,4 +6,4 @@ import { MailgunService } from './mailgun.service';
   providers: [MailgunService],
   exports: [MailgunService],
 })
-export class NotificationSystemMailgunModule {}
+export class MailgunModule {}

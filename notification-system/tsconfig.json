@@ -11,6 +11,9 @@
     },
     {
       "path": "./libs/mailgun"
+    },
+    {
+      "path": "./libs/auth"
     }
   ]
 }
