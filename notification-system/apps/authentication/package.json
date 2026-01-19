@@ -33,7 +33,7 @@
           },
           "staging": {
             "args": [
-              "--node-env=production"
+              "--node-env=staging"
             ],
             "fileReplacements": [
               {
