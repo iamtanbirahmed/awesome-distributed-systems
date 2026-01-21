@@ -4,12 +4,6 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/authentication-e2e"
-    },
-    {
-      "path": "./apps/authentication"
-    },
-    {
       "path": "./libs/mailgun"
     },
     {
@@ -17,6 +11,12 @@
     },
     {
       "path": "./libs/common"
+    },
+    {
+      "path": "./apps/notification-e2e"
+    },
+    {
+      "path": "./apps/notification"
     }
   ]
 }

@@ -39,12 +39,12 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-  authentication:
+  notification:
     build:
       context: .
-      dockerfile: apps/authentication/Dockerfile
+      dockerfile: apps/notification/Dockerfile
     
-    container_name: authentication-server
+    container_name: notification-server
     ports:
       - "3000:3000"
     environment:

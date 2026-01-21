@@ -1,0 +1,6 @@
+dependencies:
+- name: notification
+  repository: file://../notification
+  version: 0.1.0
+digest: sha256:1095f20a61913e86ed670e14f2466cc84e6ce311f0c19c9b4321949d4a4a124d
+generated: "2026-01-21T15:36:40.061986-05:00"
